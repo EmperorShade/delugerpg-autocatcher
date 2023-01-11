@@ -84,7 +84,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/EmperorShade/delugerpg-autocatcher)
+
+
 
 DelugeRPG is a 2d Pokemon-based Browser Fangame where you can catch, trade and battle your own pokemon online.
 
@@ -127,7 +128,7 @@ Sends a Windows notification which includes the name of the Pokemon and the curr
 #### <u>Records updates in a logs.txt file
 Records and updates a list of logins, masterball purchases and legendary Pokemon found along with a timestamp
 
-[![logs photo][logs-mage]](https://github.com/EmperorShade/delugerpg-autocatcher/logs.jpg)
+[![logs photo][logs-image]](https://github.com/EmperorShade/delugerpg-autocatcher/logs.jpg)
 
 #### <u>Opens a different map at random intervals
 This feature makes the bot more realistic and also makes chance for catching a variety of legendary Pokemon.
@@ -156,7 +157,7 @@ To check if you have Python installed, go to the Terminal and type:
 ```
 It should return something like this:
 
-[![check python][check-python]](https://github.com/EmperorShade/delugerpg-autocatcher/python_check.png)
+[![check python][python-check]](https://github.com/EmperorShade/delugerpg-autocatcher/python_check.png)
 
 
 ### Installation
@@ -259,7 +260,7 @@ Project Link: [https://github.com/EmperorShade/delugerpg-autocatcher](https://gi
 [license-url]: https://github.com/EmperorShade/delugerpg-autocatcher/blob/master/LICENSE
 
 [product-screenshot]: images/screenshot.jpg
-[pokemart-image]: images/pokemart.jpeg
+[pokemart-image]: images/pokemart.jpg
 [notification-image]: images/notification.png
 [logs-image]: images/logs.jpg
 [pokemon-list]: images/pokemonlist.png
