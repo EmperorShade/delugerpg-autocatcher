@@ -160,6 +160,14 @@ It should return something like this:
 [![check python][python-check]](https://github.com/EmperorShade/delugerpg-autocatcher/python_check.png)
 
 
+This also requites a chromedriver of the same version of your Chrome browser.
+To get this,
+  * Go to Chrome.
+  * Type ``` chrome://version/ ``` and check your version.
+  * Now search for https://chromedriver.chromium.org/downloads and download a build of the same version.
+  * Place the `` chromedriver.exe `` file in the same location as `` autocatcher.py ``
+  
+  
 ### Installation
 
 
