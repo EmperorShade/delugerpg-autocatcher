@@ -1,6 +1,5 @@
 pokemonlist = [
-"Dark",
-"Chrome",
+
 "Mewtwo",
 "Moltres",
 "Articuno",
