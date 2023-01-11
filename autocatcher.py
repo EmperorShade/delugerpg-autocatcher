@@ -46,7 +46,7 @@ def ball_check():
             action.send_keys("5")
             time.sleep(2)
             action.send_keys(Keys.RETURN)
-            print("purchased masterball")
+            print("Purchased Masterball")
             time.sleep(10)
             driver.get(rand_map)
         elif b not in balls_data:
@@ -104,7 +104,7 @@ def search():
         try:
             counter += 1
             ball_check()
-            time.sleep(1)
+            time.sleep(.25)
             to_move = random.choice(movement_keys)
             to_move_element = driver.find_element(By.ID, str(to_move))
             to_move_element.click()
@@ -120,7 +120,7 @@ def search():
                 for p in found_or_not:
 
                     if p in poke_text and p == "Appeared!":
-                        print("poke appeared")    
+                        print("Pokemon Appeared")    
 
 
                         for i in pokemonlist:
@@ -129,7 +129,7 @@ def search():
 
                                 print(i)
                                 time.sleep(.25)
-                                print("found")
+                                print("Found a " + i + "!")
                                 streak += 1
 
                                 title_noti = ("Autocatcher found " + i + "!")
@@ -174,12 +174,14 @@ def search():
 
                             elif i not in poke_text and t < 1:
                                 pass
+                                time.sleep(.64)
                             elif t >= 1:
                                 pass
 
 
                     elif p in poke_text and p == "anything":
-                        print("nothing")
+                        print("No Pokemon")
+                        time.sleep(0.58)
                         pass
                     else:
                         pass
