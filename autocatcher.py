@@ -101,7 +101,6 @@ def search():
     counter = 0
     counter_limit = random.randint(60, 80)
     while counter < counter_limit:
-    # time.sleep(10)
         try:
             counter += 1
             ball_check()
@@ -206,7 +205,7 @@ def search():
             pass
 
 
-
+    startmap()
 
 
 if __name__ == '__main__':
