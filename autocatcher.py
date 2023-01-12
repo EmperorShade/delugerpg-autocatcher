@@ -27,32 +27,59 @@ options.add_argument("--start-maximized")
 
 
 def zoom_out():
-    driver.execute_script("document.body.style.zoom = '60%'")
+    # driver.execute_script("document.body.style.zoom = '60%'")
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+    action.key_down(Keys.LEFT_CONTROL).send_keys(Keys.SUBTRACT).key_up(Keys.LEFT_CONTROL).perform()
+    time.sleep(.4)
+
 
 def ball_check():
-    balls = driver.find_element(By.CLASS_NAME, "cardif")
-    balls_data = (balls.text)
+    try:
+        balls = driver.find_element(By.CLASS_NAME, "cardif")
+        balls_data = (balls.text)
 
-    for b in balls_test:
-        if b in balls_data:
-            pokemart_btn = driver.find_element(By.LINK_TEXT, "Visit Pokemart")
-            time.sleep(.25)
-            pokemart_btn.click()
-            time.sleep(6)
-            masterball_box = driver.find_element(By.NAME, "itembuy[masterball]")
-            time.sleep(.25)
-            masterball_box.click()
-            time.sleep(2)
-            action.send_keys("5")
-            time.sleep(2)
-            action.send_keys(Keys.RETURN)
-            print("Purchased Masterball")
-            time.sleep(10)
-            driver.get(rand_map)
-        elif b not in balls_data:
-            pass
-        else:
-            pass
+        for b in balls_test:
+            if b in balls_data:
+                pokemart_btn = driver.find_element(By.LINK_TEXT, "Visit Pokemart")
+                time.sleep(.25)
+                pokemart_btn.click()
+                time.sleep(3)
+                masterball_box = driver.find_element(By.NAME, "itembuy[masterball]")
+                time.sleep(.25)
+                masterball_box.click()
+                time.sleep(2)
+                action.send_keys("5").perform()
+                time.sleep(2)
+                action.send_keys(Keys.RETURN).perform()
+                print("Purchased Masterball")
+                now = datetime.now()
+                dt_string = now.strftime("%H:%M:%S")
+                with open(".\logs.txt", 'a') as f:
+                    f.write("\n")
+                    f.write(dt_string + " -- Purchased Masterballs")
+                time.sleep(3)
+                driver.get(rand_map)
+            elif b not in balls_data:
+                pass
+            else:
+                pass
+
+    except NoSuchElementException:
+        print("Error in purchasing catching Masterball.")
+        pass
+    except ElementNotInteractableException:
+        print("Error in purchasing Masterball")
+    except:
+        pass
 
 
 def login():
@@ -78,7 +105,7 @@ def login():
         print("Logged in successfully.")
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        with open("D:\Shriram\Programming\Python\Delugerpg\logs.txt", 'a') as f:
+        with open(".\logs.txt", 'a') as f:
             f.write("\n")
             f.write(dt_string + " -- Logged in")
     except NoSuchElementException:
@@ -108,7 +135,7 @@ def search():
             to_move = random.choice(movement_keys)
             to_move_element = driver.find_element(By.ID, str(to_move))
             to_move_element.click()
-            time.sleep(.5)
+            time.sleep(.75)
 
             poke_box = driver.find_element(By.ID, "showpoke")
             poke_text = (poke_box.text)
@@ -145,14 +172,14 @@ def search():
                                 catch_btn = poke_box.find_element(By.CLASS_NAME, "btn-catch-action")
                                 time.sleep(.25)
                                 catch_btn.click()
-                                time.sleep(5)
+                                time.sleep(3)
                                 battle_btn = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/form/div[4]/input[1]")
                                 time.sleep(.25)
                                 battle_btn.click()
-                                time.sleep(5.5)
-                                ultra_ball = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/form/div[1]/div[4]/div[3]")
+                                time.sleep(3.5)
+                                master_ball = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/form/div[1]/div[4]/div[3]")
                                 time.sleep(.25)     
-                                ultra_ball.click()
+                                master_ball.click()
                                 time.sleep(2)
                                 throw_poke = driver.find_element(By.CSS_SELECTOR, "#itemwrap > div:nth-child(1) > form > div.buttoncenter.clear > input:nth-child(2)")
                                 time.sleep(.25)
@@ -164,24 +191,22 @@ def search():
                                     f.write(dt_string + " -- found " + str(i))
 
 
-                                time.sleep(6)
+                                time.sleep(3)
                                 return_to_map = driver.find_element(By.LINK_TEXT, " Return to Map ")
                                 time.sleep(.25)
                                 return_to_map.click()
-                                time.sleep(5)
+                                time.sleep(2)
                                 t += 1
                                 
 
                             elif i not in poke_text and t < 1:
                                 pass
-                                time.sleep(.64)
                             elif t >= 1:
                                 pass
 
 
                     elif p in poke_text and p == "anything":
                         print("No Pokemon")
-                        time.sleep(0.58)
                         pass
                     else:
                         pass
@@ -215,7 +240,7 @@ if __name__ == '__main__':
     action = ActionChains(driver)
     driver.get("https://www.delugerpg.com/login")
 
-
+    zoom_out()
     time.sleep(2)
     login()
     startmap()
