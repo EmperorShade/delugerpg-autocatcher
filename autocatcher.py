@@ -180,7 +180,7 @@ def search():
                                 throw_poke.click()
                                 now = datetime.now()
                                 dt_string = now.strftime("%H:%M:%S")
-                                with open("D:\Shriram\Programming\Python\Delugerpg\logs.txt", 'a') as f:
+                                with open(".\logs.txt", 'a') as f:
                                     f.write('\n')
                                     f.write(dt_string + " -- found " + str(i))
 
