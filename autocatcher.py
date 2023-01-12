@@ -72,12 +72,6 @@ def ball_check():
                 pass
             else:
                 pass
-
-    except NoSuchElementException:
-        print("Error in purchasing catching Masterball.")
-        pass
-    except ElementNotInteractableException:
-        print("Error in purchasing Masterball")
     except:
         pass
 
@@ -232,6 +226,7 @@ def search():
             pass
 
 
+    print("Loading new map...")
     startmap()
 
 
